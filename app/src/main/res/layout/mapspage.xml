@@ -28,21 +28,25 @@
             android:textSize="24dp" />
 
         <ImageButton
-            android:id="@+id/imageButton"
+            android:id="@+id/imageButton3"
             android:layout_width="64dp"
             android:layout_height="64dp"
             android:layout_alignParentLeft="true"
             android:layout_centerVertical="true"
             android:background="#DA6D3F"
+            android:clickable="true"
+            android:onClick="onClickMain2"
             app:srcCompat="@drawable/ic_icons8_menu" />
 
         <ImageButton
-            android:id="@+id/imageButton2"
+            android:id="@+id/imageButton4"
             android:layout_width="64dp"
             android:layout_height="64dp"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
             android:background="#DA6D3F"
+            android:clickable="true"
+            android:onClick="onClickHistory"
             app:srcCompat="@drawable/ic_history" />
     </RelativeLayout>
 
@@ -53,53 +57,9 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="80dp"
         android:gravity="center"
-        android:text="История маршрутов:"
+        android:text=" Карта:"
         android:textColor="#000000"
-        android:textSize="18dp"
+        android:textSize="30dp"
         app:layout_constraintTop_toBottomOf="@+id/header" />
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:orientation="horizontal"
-        app:layout_constraintTop_toBottomOf="@+id/textView">
-
-        <Button
-            android:id="@+id/button"
-            android:layout_width="250dp"
-            android:layout_height="40dp"
-            android:backgroundTint="#DA6D3F"
-            android:layout_marginTop="10dp"
-            android:text="Маршрут"
-            android:textSize="18dp">
-
-        </Button>
-
-        <Button
-            android:id="@+id/button1"
-            android:layout_width="250dp"
-            android:layout_height="40dp"
-            android:backgroundTint="#DA6D3F"
-            android:layout_marginTop="10dp"
-            android:text="Маршрут"
-            android:layout_below="@+id/button"
-            android:textSize="18dp">
-
-        </Button>
-
-        <Button
-            android:id="@+id/button2"
-            android:layout_width="250dp"
-            android:layout_height="40dp"
-            android:backgroundTint="#DA6D3F"
-            android:layout_marginTop="10dp"
-            android:text="Маршрут"
-            android:textSize="18dp"
-            android:layout_below="@+id/button1">
-
-        </Button>
-
-    </RelativeLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

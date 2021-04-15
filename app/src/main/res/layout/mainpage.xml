@@ -43,6 +43,8 @@
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
             android:background="#DA6D3F"
+            android:clickable="true"
+            android:onClick="onClickHistory"
             app:srcCompat="@drawable/ic_history" />
     </RelativeLayout>
 
@@ -119,6 +121,7 @@
 
         <Button
             android:id="@+id/button"
+            android:onClick="onClickMaps"
             android:layout_width="250dp"
             android:layout_height="40dp"
             android:layout_marginTop="80dp"

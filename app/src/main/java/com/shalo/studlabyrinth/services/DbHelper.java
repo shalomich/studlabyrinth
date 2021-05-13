@@ -9,10 +9,10 @@ import androidx.annotation.Nullable;
 public class DbHelper extends SQLiteOpenHelper {
 
     public static final int DATABASE_VERSION = 1;
-    public static final String DATABAE_NAME = "routesDb";
+    public static final String DATABAE_NAME = "appDb";
     public static final String TABLE_NAME = "routes";
 
-    public static final String KEY_ID = "_id";
+    public static final String KEY_ID = "id";
     public static final String KEY_MAP_NAME = "mapName";
     public static final String KEY_BEGINNING_POINT_NAME = "beginningPointName";
     public static final String KEY_END_POINT_NAME = "endPointName";

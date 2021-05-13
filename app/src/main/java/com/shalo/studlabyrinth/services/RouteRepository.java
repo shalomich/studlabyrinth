@@ -10,16 +10,20 @@ import com.shalo.studlabyrinth.models.Route;
 import java.util.ArrayList;
 import java.util.List;
 
+import static android.content.Context.MODE_PRIVATE;
+
 public class RouteRepository {
 
     private SQLiteDatabase database;
 
     public RouteRepository(Context context) {
-        this.database = new DbHelper(context).getWritableDatabase();
+        database = context.openOrCreateDatabase("appDb",
+                MODE_PRIVATE, null);
+        database.execSQL("CREATE TABLE IF NOT EXISTS routes (id INTEGER primary key, mapName TEXT, beginningPointName TEXT, endPointName TEXT);");
     }
 
     public List<Route> Select(){
-        Cursor cursor = database.query(DbHelper.TABLE_NAME,null,null,null,null,null,null);
+        Cursor cursor = database.rawQuery("SELECT * FROM routes;", null);;
 
         List<Route> routes = new ArrayList<>();
 
@@ -32,15 +36,17 @@ public class RouteRepository {
     }
 
     public Route Select(int id) {
-        Cursor cursor = database.query(DbHelper.TABLE_NAME,null,null,null,null,null,null);
+        Cursor cursor = database.rawQuery("SELECT * FROM routes where id =" + id + ";", null);;
 
-        while (cursor.moveToNext()) {
-            int routeId = cursor.getInt(cursor.getColumnIndex(DbHelper.KEY_ID));
-            if (routeId == id)
-                return GetRoute(cursor);
+        Route route = null;
+
+        if(cursor.moveToFirst()){
+            route = GetRoute(cursor);
         }
 
-        return null;
+        cursor.close();
+
+        return route;
     }
 
     private Route GetRoute(Cursor cursor) {
@@ -53,13 +59,9 @@ public class RouteRepository {
     }
 
     public void Insert(Route route) {
-        ContentValues values = new ContentValues();
-
-        values.put(DbHelper.KEY_MAP_NAME, route.getMapName());
-        values.put(DbHelper.KEY_BEGINNING_POINT_NAME, route.getBeginningPointName());
-        values.put(DbHelper.KEY_END_POINT_NAME, route.getEndPointName());
-
-        database.insert(DbHelper.TABLE_NAME,null, values);
+        String query = String.format("insert into routes (mapName,beginningPointName,endPointName) values (%s,%s,%s)",
+                route.getMapName(),route.getBeginningPointName(),route.getEndPointName());
+        database.execSQL(query);
     }
 
     public void Delete(int id) {

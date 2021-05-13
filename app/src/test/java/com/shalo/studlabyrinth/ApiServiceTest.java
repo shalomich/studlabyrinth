@@ -1,5 +1,8 @@
 package com.shalo.studlabyrinth;
 
+import com.google.android.gms.common.api.Api;
+import com.shalo.studlabyrinth.services.ApiService;
+
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -9,9 +12,11 @@ import static org.junit.Assert.*;
  *
  * @see <a href="http://d.android.com/tools/testing">Testing documentation</a>
  */
-public class ExampleUnitTest {
+public class ApiServiceTest {
     @Test
     public void addition_isCorrect() {
-        assertEquals(4, 2 + 2);
+        ApiService service = new ApiService();
+
+        assertEquals(6, service.getMaps().size());
     }
 }

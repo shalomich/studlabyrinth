@@ -10,6 +10,7 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.gms.maps.model.PolylineOptions;
 import com.shalo.studlabyrinth.databinding.ActivityMapsBinding;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
@@ -42,10 +43,15 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
+        LatLng IKIT = new LatLng(55.9943578,92.7949795);
+        LatLng Politeh = new LatLng(55.9963404,92.7966509);
 
-        // Add a marker in Sydney and move the camera
-        LatLng sydney = new LatLng(-34, 151);
-        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+        PolylineOptions line = new PolylineOptions();
+        line.add(IKIT);
+        line.add(Politeh);
+
+        mMap.addMarker(new MarkerOptions().position(IKIT).title("You are there"));
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(IKIT));
+        mMap.addPolyline(line);
     }
 }

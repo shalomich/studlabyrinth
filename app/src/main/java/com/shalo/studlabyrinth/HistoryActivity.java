@@ -4,15 +4,26 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ListView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.shalo.studlabyrinth.services.RouteRepository;
+
 public class HistoryActivity extends AppCompatActivity {
+
+    private RouteRepository repository;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.historypage);
+
+        repository = new RouteRepository(this);
+
+        ListView routeContainer = findViewById(R.id.history_routes);
+        RouteAdapter adapter = new RouteAdapter(this,R.layout.list_item_history,repository.Select());
+        routeContainer.setAdapter(adapter);
     }
 
     public void onClickMain(View view) {

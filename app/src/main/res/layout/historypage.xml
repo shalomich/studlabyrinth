@@ -101,6 +101,14 @@
 
         </Button>
 
+
+        <ListView
+            android:id="@+id/history_routes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        </ListView>
+
     </RelativeLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

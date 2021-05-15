@@ -11,13 +11,17 @@ import android.widget.Spinner;
 import com.shalo.studlabyrinth.MapsActivity;
 import com.shalo.studlabyrinth.R;
 import com.shalo.studlabyrinth.models.Route;
+import com.shalo.studlabyrinth.services.RouteRepository;
 
 public class MainActivity extends AppCompatActivity {
+
+    private RouteRepository repository;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.mainpage);
+        repository = new RouteRepository(this);
     }
 
     public void onClickMaps(View view) {
@@ -25,9 +29,11 @@ public class MainActivity extends AppCompatActivity {
                                       ((Spinner) findViewById(R.id.BeginningPointName)).getSelectedItem().toString(),
                                       ((Spinner) findViewById(R.id.endPointName)).getSelectedItem().toString());
 
-        System.out.println(routeToSend);
-        Intent intent = new Intent(MainActivity.this, MapsActivity.class);
-        startActivity(intent);
+        repository.Insert(routeToSend);
+        System.out.println("Main");
+        System.out.println(repository.Select().size());
+//        Intent intent = new Intent(MainActivity.this, MapsActivity.class);
+//        startActivity(intent);
     }
 
     public void onClickHistory(View view) {

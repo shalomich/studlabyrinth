@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ListView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,6 +21,8 @@ public class HistoryActivity extends AppCompatActivity {
         setContentView(R.layout.historypage);
 
         repository = new RouteRepository(this);
+
+        System.out.println(repository.Select().size());
 
         ListView routeContainer = findViewById(R.id.history_routes);
         RouteAdapter adapter = new RouteAdapter(this,R.layout.list_item_history,repository.Select());

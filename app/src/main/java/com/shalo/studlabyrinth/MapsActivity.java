@@ -53,8 +53,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         line.add(IKIT);
         line.add(Politeh);
 
-        mMap.addMarker(new MarkerOptions().position(IKIT).title("You are there"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(IKIT));
+        mMap.addMarker(new MarkerOptions().position(Politeh).title("You are there"));
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(Politeh));
         mMap.addPolyline(line);
     }
 }

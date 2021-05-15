@@ -59,9 +59,11 @@ public class RouteRepository {
     }
 
     public void Insert(Route route) {
-        String query = String.format("insert into routes (mapName,beginningPointName,endPointName) values (%s,%s,%s)",
+        String query = String.format("insert into routes (mapName,beginningPointName,endPointName) values ('%s','%s','%s')",
                 route.getMapName(),route.getBeginningPointName(),route.getEndPointName());
         database.execSQL(query);
+        System.out.println("Repo");
+        System.out.println(Select().size());
     }
 
     public void Delete(int id) {

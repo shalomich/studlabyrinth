@@ -68,7 +68,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView"
-        android:entries="@array/items1" />
+        android:entries="@array/items1"
+        android:textAlignment="center"/>
 
     <TextView
         android:id="@+id/textView2"
@@ -91,7 +92,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2"
-        android:entries="@array/items2" />
+        android:entries="@array/items2"
+        android:textAlignment="center"/>
 
     <TextView
         android:id="@+id/textView3"
@@ -114,7 +116,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView3"
-        android:entries="@array/items3" />
+        android:entries="@array/items3"
+        android:textAlignment="center"/>
     
     <RelativeLayout
         android:layout_width="match_parent"
